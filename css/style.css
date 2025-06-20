@@ -1,0 +1,265 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+header {
+  display: flex;
+  align-items: center;     /* alinha verticalmente */
+  justify-content: space-between; /* espaço entre logo/título e menu */
+  padding: 0 20px;
+  height: 80px;            /* altura fixa */
+  background-color: #b1b1b1;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+header h1 {
+  margin: 0;
+  font-size: 24px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo {
+  height: 220px;       /* altura menor que o header (80px) */
+  width: auto;        /* manter proporção */
+  margin: 0;          /* remover margem extra */
+  display: block;     /* garantir que não tenha espaçamento extra */
+}
+
+nav a {
+  margin: 0 10px;
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+}
+
+.banner {
+  position: relative;
+  height: 250px;
+  color: #000000;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.5rem;
+  font-weight: bold;
+  overflow: hidden;
+}
+
+.banner::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: url('../imgs/produtos/banner.jpg') center/cover no-repeat;
+  z-index: 0;
+  filter: brightness(0.6);
+  transform: scale(1);
+  transition: transform 5s ease-in-out;
+}
+
+.banner:hover::before {
+  transform: scale(1.05); /* zoom leve ao passar o mouse */
+}
+
+.banner h2 {
+  position: relative;
+  z-index: 1;
+  margin: 0;
+  text-shadow: 2px 2px 6px rgba(0,0,0,0.8);
+}
+
+/* Centralização da seção produtos no carrinho e estilização dos botões */
+.produtos {
+  padding: 20px;
+
+  /* Centralizar conteúdo do carrinho */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.produtos ul#lista-carrinho {
+  list-style-type: none;
+  padding: 0;
+  width: 100%;
+  max-width: 400px;
+  margin-bottom: 20px;
+}
+
+.produtos ul#lista-carrinho li {
+  padding: 8px 0;
+  border-bottom: 1px solid #ccc;
+}
+
+/* Botões do carrinho com estilo igual aos outros botões */
+.produtos button {
+  background-color: #07243d; /* azul moderno */
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: bold;
+  transition: background-color 0.3s, transform 0.2s;
+  margin: 5px 10px; /* espaçamento entre botões */
+  min-width: 150px;
+}
+
+.produtos button:hover {
+  background-color: #1565c0;
+  transform: scale(1.05);
+}
+
+.produtos button:active {
+  background-color: #0d47a1;
+  transform: scale(0.97);
+}
+
+.produtos button:focus {
+  outline: none;
+}
+
+.grid {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+.produto {
+  border: 1px solid #ccc;
+  padding: 10px;
+  width: 200px;
+}
+footer {
+  background-color: #222;
+  color: #fff;
+  text-align: center;
+  padding: 10px;
+}
+
+.produto {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 10px;
+  padding: 10px;
+  border: 1px solid #383838;
+  border-radius: 8px;
+  width: 220px; /* largura do card */
+  margin: auto;
+}
+
+.produto img {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.produto button {
+  background-color: #07243d; /* azul moderno */
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: bold;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.produto button:hover {
+  background-color: #1565c0;
+  transform: scale(1.05); /* efeito de crescimento leve */
+}
+
+.produto button:active {
+  background-color: #0d47a1;
+  transform: scale(0.97);
+}
+
+a i {
+  margin-right: 6px;
+  color: inherit;
+}
+
+nav a i {
+  margin-right: 5px;
+  color: inherit;
+}
+
+.titulo-produtos {
+  text-align: center;
+}
+
+/* ==================== RESPONSIVIDADE ==================== */
+
+/* Tablets e telas médias */
+@media screen and (max-width: 768px) {
+  header {
+    flex-direction: column;
+    height: auto;
+    padding: 10px;
+  }
+
+  nav {
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10px;
+  }
+
+  nav a {
+    margin: 5px 0;
+  }
+
+  .banner {
+    height: 180px;
+    font-size: 1.8rem;
+  }
+
+  .grid {
+    justify-content: center;
+  }
+
+  .produto {
+    width: 45%;
+    margin-bottom: 20px;
+  }
+}
+
+/* Celulares */
+@media screen and (max-width: 480px) {
+  .banner {
+    height: 140px;
+    font-size: 1.3rem;
+    padding: 10px;
+  }
+
+  .produto {
+    width: 90%;
+  }
+
+  .produto img {
+    width: 100%;
+    height: auto;
+  }
+
+  .produto button {
+    width: 100%;
+    padding: 10px;
+  }
+
+  nav {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  nav a {
+    display: block;
+    margin: 6px 0;
+  }
+}

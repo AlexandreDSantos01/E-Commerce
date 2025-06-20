@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carrinho - E-Commerce</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="Logo.ico" type="image/x-icon" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+</head>
+<body>
+  <header>
+    <img src="imgs/Logos/Lado_02.png" alt="Logo da loja" class="logo">
+    <h1>E-Commerce</h1>
+    
+
+    <nav>
+  <a href="index.html"><i class="fas fa-home"></i> Início</a>
+  <a href="produtos.html"><i class="fas fa-box-open"></i> Produtos</a>
+  <a href="carrinho.html"><i class="fas fa-shopping-cart"></i> Carrinho</a>
+</nav>
+  </header>
+
+  <section class="produtos">
+    <h3><i class="fas fa-shopping-cart" style="margin-right: 8px; color:#07243d;"></i> Meu Carrinho</h3>
+
+    <ul id="lista-carrinho"></ul>
+    <p id="total"></p>
+    <button onclick="limparCarrinho()">Limpar Carrinho</button>
+    <button onclick="finalizarCompra()">Finalizar Compra</button>
+  </section>
+
+  <footer>
+    <p><em>Rede Social:</em></p>
+    <a href="https://www.instagram.com/xande_al10/" target="_blank" rel="noopener noreferrer">
+  <i class="fab fa-instagram"></i> Instagram
+</a> |
+<a href="https://github.com/AlexandreDSantos01/AlexandreDSantos01" target="_blank" rel="noopener noreferrer">
+  <i class="fab fa-github"></i> GitHub
+</a> |
+<a href="mailto:Alexandreds3@hotmail.com?subject=Contato%20via%20Portfólio" target="_blank" rel="noopener noreferrer">
+  <i class="fas fa-envelope"></i> Email
+</a>
+  </footer>
+
+ <script>
+  const lista = document.getElementById("lista-carrinho");
+  const total = document.getElementById("total");
+  let carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
+
+  function atualizarCarrinho() {
+    lista.innerHTML = ""; // limpa a lista para reexibir
+    let soma = 0;
+
+    carrinho.forEach((item, index) => {
+      const li = document.createElement("li");
+      const quantidade = item.quantidade || 1;
+      const subtotal = item.preco * quantidade;
+      li.textContent = `${quantidade}x ${item.produto} - R$ ${subtotal.toFixed(2)}`;
+
+      // Criar botão excluir
+      const btnExcluir = document.createElement("button");
+      btnExcluir.textContent = "Excluir";
+      btnExcluir.style.marginLeft = "10px";
+      btnExcluir.style.backgroundColor = "#a00";
+      btnExcluir.style.color = "#fff";
+      btnExcluir.style.border = "none";
+      btnExcluir.style.borderRadius = "4px";
+      btnExcluir.style.cursor = "pointer";
+      btnExcluir.style.padding = "2px 8px";
+      btnExcluir.title = "Remover item";
+
+      btnExcluir.onclick = () => {
+        let quantidadeRemover = prompt(`Você tem ${quantidade} unidade(s) de "${item.produto}". Quantas deseja remover?`, "1");
+        if (quantidadeRemover === null) return; // cancelou
+
+        quantidadeRemover = parseInt(quantidadeRemover);
+        if (isNaN(quantidadeRemover) || quantidadeRemover <= 0) {
+          alert("Por favor, informe um número válido maior que zero.");
+          return;
+        }
+
+        if (quantidadeRemover > quantidade) {
+          alert(`Você só tem ${quantidade} unidade(s) no carrinho.`);
+          return;
+        }
+
+        if (quantidadeRemover === quantidade) {
+          // Remove o item completo
+          carrinho.splice(index, 1);
+        } else {
+          // Só diminui a quantidade
+          carrinho[index].quantidade = quantidade - quantidadeRemover;
+        }
+
+        localStorage.setItem("carrinho", JSON.stringify(carrinho));
+        atualizarCarrinho();
+      };
+
+      li.appendChild(btnExcluir);
+      lista.appendChild(li);
+      soma += subtotal;
+    });
+
+    total.textContent = "Total: R$ " + soma.toFixed(2);
+  }
+
+  function limparCarrinho() {
+    if (confirm("Tem certeza que deseja limpar o carrinho?")) {
+      localStorage.removeItem("carrinho");
+      carrinho = [];
+      atualizarCarrinho();
+    }
+  }
+
+  function finalizarCompra() {
+    if (carrinho.length === 0) {
+      alert("Seu carrinho está vazio.");
+      return;
+    }
+
+    const soma = carrinho.reduce((acc, item) => acc + item.preco * (item.quantidade || 1), 0);
+
+    if (confirm(`O total da compra é R$ ${soma.toFixed(2)}. Deseja finalizar a compra?`)) {
+      alert("Compra finalizada com sucesso! Obrigado pela preferência.");
+      localStorage.removeItem("carrinho");
+      carrinho = [];
+      atualizarCarrinho();
+    }
+  }
+
+  // Atualiza a lista ao carregar a página
+  atualizarCarrinho();
+</script>
+
+
+
+
+</body>
+</html>

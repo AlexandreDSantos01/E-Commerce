@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Todos os Produtos - E-Commerce</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="icon" href="Logo.ico" type="image/x-icon" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+</head>
+<body>
+  <header>
+    <img src="imgs/Logos/Lado_02.png" alt="Logo da loja" class="logo">
+    <h1>E-Commerce</h1>
+    
+
+    <nav>
+  <a href="index.html"><i class="fas fa-home"></i> Início</a>
+  <a href="produtos.html"><i class="fas fa-box-open"></i> Produtos</a>
+  <a href="carrinho.html"><i class="fas fa-shopping-cart"></i> Carrinho</a>
+</nav>
+  </header>
+
+  <section class="produtos">
+    <h3 class="titulo-produtos">Todos os Produtos</h3>
+    <div class="grid">
+      
+      <div class="produto">
+        <img src="imgs/produtos/Smartphone X.jpg" alt="Celular" />
+        <h4>Smartphone X</h4>
+        <p>R$ 1.999,00</p>
+        <button onclick="adicionarCarrinho('Smartphone X', 1999)">Adicionar</button>
+      </div>
+      
+      <div class="produto">
+        <img src="imgs/produtos/Notebook.jpg" alt="Notebook" />
+        <h4>Notebook Pro</h4>
+        <p>R$ 3.499,00</p>
+        <button onclick="adicionarCarrinho('Notebook Pro', 3499)">Adicionar</button>
+      </div>
+      
+      <div class="produto">
+        <img src="imgs/produtos/Fone Bluetooth.jpg" alt="Fone" />
+        <h4>Fone Bluetooth</h4>
+        <p>R$ 299,00</p>
+        <button onclick="adicionarCarrinho('Fone Bluetooth', 299)">Adicionar</button>
+      </div>
+
+      <div class="produto">
+        <img src="imgs/produtos/Smartphone Galaxy Z Pro.jpg" alt="Fone" />
+        <h4>Smartphone Galaxy Z Pro</h4>
+        <p>R$ 4.299,00</p>
+        <button onclick="adicionarCarrinho('Smartphone Galaxy Z Pro', 4299)">Adicionar</button>
+      </div>
+      <div class="produto">
+        <img src="imgs/produtos/Notebook Gamer Nitro X.jpg" alt="Fone" />
+        <h4>Notebook Gamer Nitro X</h4>
+        <p>R$ 6.499,00</p>
+        <button onclick="adicionarCarrinho('Notebook Gamer Nitro X', 6499)">Adicionar</button>
+      </div>
+
+      <div class="produto">
+        <img src="imgs/produtos/Smartwatch FitBand 5.jpg" alt="Fone" />
+        <h4>Smartwatch FitBand 5</h4>
+        <p>R$ 899,00</p>
+        <button onclick="adicionarCarrinho('Smartwatch FitBand 5', 899)">Adicionar</button>
+      </div>
+
+      <div class="produto">
+        <img src="imgs/produtos/Fone Bluetooth SoundBeats.jpg" alt="Fone" />
+        <h4>Fone Bluetooth SoundBeats</h4>
+        <p>R$ 799,00</p>
+        <button onclick="adicionarCarrinho('Fone Bluetooth SoundBeats', 799)">Adicionar</button>
+      </div>
+
+      <div class="produto">
+        <img src="imgs/produtos/Caixa de Som JBL BoomBox.jpg" alt="Fone" />
+        <h4>Caixa de Som JBL BoomBox</h4>
+        <p>R$ 799,00</p>
+        <button onclick="adicionarCarrinho('Caixa de Som JBL BoomBox', 799)">Adicionar</button>
+      </div>
+
+      <div class="produto">
+        <img src="imgs/produtos/Monitor UltraWide LG 34.jpg" alt="Fone" />
+        <h4>Monitor UltraWide LG 34”</h4>
+        <p>R$ 2.499,00</p>
+        <button onclick="adicionarCarrinho('Monitor UltraWide LG 34”', 2499)">Adicionar</button>
+      </div>
+
+      <div class="produto">
+        <img src="imgs/produtos/Teclado Mecânico RGB RedDragon.jpg" alt="Fone" />
+        <h4>Teclado Mecânico RGB RedDragon</h4>
+        <p>R$ 499,00</p>
+        <button onclick="adicionarCarrinho('Teclado Mecânico RGB RedDragon', 499)">Adicionar</button>
+      </div>
+
+      <div class="produto">
+        <img src="imgs/produtos/Mouse Wireless Logitech M720.jpg" alt="Fone" />
+        <h4>Mouse Wireless Logitech M720</h4>
+        <p>R$ 199,00</p>
+        <button onclick="adicionarCarrinho('Mouse Wireless Logitech M720', 199)">Adicionar</button>
+      </div>
+
+      <div class="produto">
+        <img src="imgs/produtos/TV 4K Samsung Crystal 55.jpg" alt="Fone" />
+        <h4>TV 4K Samsung Crystal 55”</h4>
+        <p>R$ 3.899,00</p>
+        <button onclick="adicionarCarrinho('TV 4K Samsung Crystal 55”', 3.899)">Adicionar</button>
+      </div>
+
+      <div class="produto">
+        <img src="imgs/produtos/Drone SkyCam X.jpg" alt="Fone" />
+        <h4>Drone SkyCam X</h4>
+        <p>R$ 1.999,00</p>
+        <button onclick="adicionarCarrinho('Drone SkyCam X8', 1999)">Adicionar</button>
+      </div>
+
+    </div>
+  </section>
+
+  <footer>
+    <p><em>Rede Social</em></p>
+    <a href="https://www.instagram.com/xande_al10/" target="_blank" rel="noopener noreferrer">
+  <i class="fab fa-instagram"></i> Instagram
+</a> |
+<a href="https://github.com/AlexandreDSantos01/AlexandreDSantos01" target="_blank" rel="noopener noreferrer">
+  <i class="fab fa-github"></i> GitHub
+</a> |
+<a href="mailto:Alexandreds3@hotmail.com?subject=Contato%20via%20Portfólio" target="_blank" rel="noopener noreferrer">
+  <i class="fas fa-envelope"></i> Email
+</a>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
