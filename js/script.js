@@ -28,3 +28,8 @@ function adicionarCarrinho(produto, preco) {
   localStorage.setItem('carrinho', JSON.stringify(carrinho));
   alert(`${produto} adicionado ao carrinho!`);
 }
+
+function toggleMenu() {
+  const nav = document.querySelector("nav");
+  nav.classList.toggle("show");
+}
