@@ -10,23 +10,7 @@
 
 </head>
 <body>
-  <header>
-
-    <div class="menu-toggle" onclick="toggleMenu()">
-  <span></span>
-  <span></span>
-  <span></span>
-</div>
-    <img src="imgs/Logos/Lado_02.png" alt="Logo da loja" class="logo">
-    <h1>E-Commerce</h1>
-    
-
-    <nav>
-  <a href="index.html"><i class="fas fa-home"></i> Início</a>
-  <a href="produtos.html"><i class="fas fa-box-open"></i> Produtos</a>
-  <a href="carrinho.html"><i class="fas fa-shopping-cart"></i> Carrinho</a>
-</nav>
-  </header>
+  <div id="header-container"></div>
 
   <section class="banner">
     <h2>Ofertas Imperdíveis em Eletrônicos!</h2>
@@ -94,5 +78,22 @@
   </footer>
 
   <script src="js/script.js"></script>
+  <script>
+  fetch("header.html")
+    .then(res => res.text())
+    .then(data => {
+      document.getElementById("header-container").innerHTML = data;
+      // reativa o toggleMenu após o carregamento
+      const script = document.createElement('script');
+      script.textContent = `
+        function toggleMenu() {
+          const nav = document.querySelector('header nav');
+          nav.classList.toggle('show');
+        }
+      `;
+      document.body.appendChild(script);
+    });
+</script>
+
 </body>
 </html>
